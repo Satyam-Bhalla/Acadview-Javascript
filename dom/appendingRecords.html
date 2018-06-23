@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        input[type="text"] {
+            margin: 40px;
+            width: 20%;
+            padding: 10px;
+            border: none;
+        }
+
+        td,
+        th {
+            margin: 40px;
+            width: 20vw;
+            padding: 10px;
+        }
+    </style>
+    <form id="form">
+        <input type="text" placeholder="Your good name?" name="name">
+
+        <input type="text" placeholder="The lucky number, I mean ur roll number" name="roll">
+
+        <input type="text" placeholder="Total marks" name="marks">
+
+        <input type="submit">
+    </form>
+
+    <table id="tab">
+        <tr>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>Marks</th>
+        </tr>
+    </table>
+
+    <script>
+        document.querySelector('#form').addEventListener('submit', e => {
+            e.preventDefault()
+            var tr = document.createElement('tr')
+            t
+            var props = ['name', 'roll', 'marks']
+            for (var i = 0; i < 3; i++) {
+                var td = document.createElement('td')
+                td.innerHTML = e.target[props[i]].value
+                tr.appendChild(td)
+            }
+            document.querySelector('#tab').appendChild(tr)
+        })
+    </script>
+
+</body>
+
+</html>
