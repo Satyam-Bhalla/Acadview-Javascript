@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body,
+        h1,
+        h2,
+        a {
+            margin: 0;
+        }
+
+        .head {
+            color: violet;
+        }
+    </style>
+
+    <h1 id="heading" style="font-size:20px;"></h1>
+    <input type="text" id="input" placeholder="provide an input" />
+    <button id="btn">Click here</button>
+
+    <form action="http://google.com" method="post" id="form">
+        <input type='text' name="username">
+        <input type='password' name="pass">
+        <input type="submit" value="Login">
+    </form>
+    <script>
+        var heading = document.getElementById('heading')
+        heading.innerHTML = 'Some other cool text'
+
+        //document.getElementsByTagName(name)
+        //document.getElementsByClassName(name)
+        heading.setAttribute('class', 'head')
+        heading.style.fontSize = '24px'
+
+        var p = document.createElement('p')
+        p.innerHTML = "Lorem Ipsum is simply dummy text of the printing and typesetting "
+        document.body.appendChild(p)
+
+        console.log(document.anchors)
+
+        var button = document.getElementById('btn')
+        button.addEventListener('click', function () {
+            var input = document.getElementById('input')
+            heading.innerHTML = "hello " + input.value
+        })
+        var input = document.getElementById('input')
+        input.addEventListener("change",function(){
+            // heading.innerHTML = input.value
+            console.log('changed')
+        })
+        var form = document.getElementById('form')
+        form.addEventListener('submit',function(event){
+            event.preventDefault()
+            if(event.target.username.value == 'admin'){
+                heading.innerHTML = 'permission granted'
+            }
+            else{
+                heading.innerHTML = 'not a valid username'
+            }
+            
+        })
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Express Sample</title>
+</head>
+
+<body>
+    <form id="form" method="post" action="/">
+        <input type="text" name="username" placeholder="Enter Username">
+        <br>
+        <input type="password" name="pass" placeholder="enter password">
+        <br>
+        <input type="submit">
+    </form>
+
+    <script>
+
+        let error_msg = document.createElement('p')
+                    error_msg.innerHTML = 'Please fill out all the fields'
+        document.querySelector("#form").addEventListener('submit', event => {
+            if(!event.target.username.value || !event.target.pass.value){
+                event.preventDefault()
+                
+                document.body.appendChild(error_msg)
+            }
+        })
+    </script>
+
+</body>
+
+</html>
